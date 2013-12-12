@@ -1,5 +1,10 @@
 # Put some miscellaneous rules here
 
+
+# Version de TeloKang
+TELO_VERSION := "Revision 1 Telo"
+TELO_VERSION_PACKAGE := "telokang_r1_"
+
 # Build system colors
 
 ifneq ($(BUILD_WITH_COLORS),0)
@@ -230,7 +235,8 @@ $(INSTALLED_BUILD_PROP_TARGET): $(BUILDINFO_SH) $(INTERNAL_BUILD_ID_MAKEFILE) $(
 		$(hide) echo >> $@; \
 		        echo "#" >> $@; \
 		        echo "# ADDITIONAL_BUILD_PROPERTIES" >> $@; \
-		        echo "#" >> $@; )
+		        echo "#" >> $@; \
+		        echo "ro.telo.version=$(TELO_VERSION)" >> $@; ) 
 	$(hide) $(foreach line,$(ADDITIONAL_BUILD_PROPERTIES), \
 		echo "$(line)" >> $@;)
 	$(hide) build/tools/post_process_props.py $@
@@ -1442,7 +1448,8 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)
 	   --override_device=$(override_device) \
 	   $(BUILT_TARGET_FILES_PACKAGE) $@
 
-CM_TARGET_PACKAGE := $(PRODUCT_OUT)/cm-$(CM_VERSION).zip
+
+CM_TARGET_PACKAGE := $(PRODUCT_OUT)/$(TELO_VERSION_PACKAGE)_$(shell date +"%Y%m%d").zip
 
 .PHONY: otapackage bacon
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
