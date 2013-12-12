@@ -2,8 +2,8 @@
 
 
 # Version de TeloKang
-TELO_VERSION := "Revision 1 Telo"
-TELO_VERSION_PACKAGE := "telokang_r1_"
+TELO_VERSION := "Revision 2 Telo"
+TELO_VERSION_PACKAGE := "telokang_r2_"
 
 # Build system colors
 
