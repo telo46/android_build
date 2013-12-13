@@ -2,8 +2,9 @@
 
 
 # Version de TeloKang
-TELO_VERSION := "Revision 2 Telo"
-TELO_VERSION_PACKAGE := "telokang_r2_"
+TELO_NUM := 2
+TELO_VERSION := "telo-r$(TELO_NUM)-CM11-$(shell date +"%Y%m%d-%H:%M")"
+TELO_VERSION_PACKAGE := "telo-r$(TELO_NUM)-CM11"
 
 # Build system colors
 
@@ -1449,7 +1450,7 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)
 	   $(BUILT_TARGET_FILES_PACKAGE) $@
 
 
-CM_TARGET_PACKAGE := $(PRODUCT_OUT)/$(TELO_VERSION_PACKAGE)_$(shell date +"%Y%m%d").zip
+CM_TARGET_PACKAGE := $(PRODUCT_OUT)/$(TELO_VERSION_PACKAGE)-$(TARGET_DEVICE)-$(shell date +"%Y%m%d").zip
 
 .PHONY: otapackage bacon
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
