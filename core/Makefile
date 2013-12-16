@@ -2,7 +2,7 @@
 
 
 # Version de TeloKang
-TELO_NUM := 2
+TELO_NUM := 3
 TELO_VERSION := "telo-r$(TELO_NUM)-CM11-$(shell date +"%Y%m%d-%H:%M")"
 TELO_VERSION_PACKAGE := "telo-r$(TELO_NUM)-CM11"
 
